@@ -16,13 +16,6 @@
   </head>
   <body class="bg-[#F8FAF9] text-[#1E293B] antialiased selection:bg-emerald-200 selection:text-emerald-950">
     <div id="root"></div>
-    <script>
-      // Deteksi otomatis jika dibuka di hosting statis GitHub Pages tanpa build server
-      if (window.location.hostname.endsWith('github.io') && !window.location.pathname.endsWith('standalone.html')) {
-        var base = window.location.pathname.replace(/\/index\.html$|\/$/, '');
-        window.location.replace(base + '/standalone.html');
-      }
-    </script>
-    <script type="module" src="./src/main.tsx" onerror="window.location.replace('./standalone.html')"></script>
+    <script type="module" src="./src/main.tsx"></script>
   </body>
 </html>

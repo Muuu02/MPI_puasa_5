@@ -65,9 +65,9 @@ git push origin main`;
                 </span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="font-bold text-amber-700 shrink-0">2. Error 404 Gambar & Aset:</span>
+                <span className="font-bold text-amber-700 shrink-0">2. Gambar & Aset Asli:</span>
                 <span>
-                  Sebelumnya URL aset menggunakan path absolut <code className="bg-amber-100 px-1 rounded">/assets/</code> atau <code className="bg-amber-100 px-1 rounded">/images/</code>. Ketika dihosting di subfolder repositori (contoh: <code className="bg-amber-100 px-1 rounded">https://user.github.io/nama-repo/</code>), browser mencari di domain utama dan menghasilkan 404. Sekarang sudah diperbaiki menggunakan <strong>base: './' (relative path)</strong> dan <strong>vektor SVG inline yang kebal 404 100%</strong>.
+                  Aset gambar asli resolusi tinggi dari <code className="bg-amber-100 px-1 rounded">src/assets/images</code> (Gerbang Ramadan megah, momen sahur-buka, anak berbagi, poster PjBL) telah diselaraskan. Kami menambahkan fallback langsung ke repositori Anda (<code className="bg-amber-100 px-1 rounded">Muuu02/MPI_puasa_5</code>) sehingga gambar <strong>100% selalu tampil</strong> dan tidak pernah rusak atau berubah menjadi ilustrasi lain.
                 </span>
               </li>
               <li className="flex items-start gap-2">
@@ -84,7 +84,7 @@ git push origin main`;
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="bg-emerald-700 text-white text-xs font-bold px-2.5 py-0.5 rounded-full">
-                  Solusi Terbaik (Otomatis)
+                  Solusi Praktis & Otomatis
                 </span>
                 <h4 className="font-bold text-emerald-950 text-base">
                   Publikasi Otomatis via GitHub Actions
@@ -94,28 +94,28 @@ git push origin main`;
             </div>
 
             <p className="text-xs text-slate-600 leading-relaxed">
-              Kami telah menambahkan berkas otomatisasi <code className="bg-white border px-1.5 py-0.5 rounded text-emerald-800 font-mono">.github/workflows/deploy.yml</code> di dalam repositori ini. Setiap kali Anda melakukan <code>git push</code>, GitHub akan otomatis meng-compile dengan Vite dan merilis website utuh tanpa konfigurasi manual!
+              Kami telah memperbarui berkas <code className="bg-white border px-1.5 py-0.5 rounded text-emerald-800 font-mono">.github/workflows/deploy.yml</code> dan menyertakan <code className="bg-white border px-1.5 py-0.5 rounded text-emerald-800 font-mono">package-lock.json</code>. Sekarang GitHub Actions akan mengompilasi Vite dan mempublikasikan seluruh aset gambar asli Anda ke GitHub Pages tanpa error lockfile!
             </p>
 
             <div className="space-y-3 bg-white p-4 rounded-xl border border-emerald-100">
               <h5 className="font-bold text-slate-800 text-xs uppercase tracking-wider">
-                Langkah Cepat Aktifkan di GitHub (Hanya 1 Menit):
+                Langkah Cepat di GitHub (Hanya 1 Menit):
               </h5>
               <ol className="text-xs text-slate-700 space-y-2.5 list-decimal pl-4">
                 <li>
-                  Buka halaman repositori Anda di GitHub (contoh: <code className="text-slate-600">github.com/username/mpi-puasa-kelas5</code>).
+                  Push commit terbaru ke GitHub dengan perintah di bawah.
                 </li>
                 <li>
-                  Klik tab <strong>Settings</strong> di bagian atas.
+                  Buka repository <code className="text-slate-700 font-semibold">Muuu02/MPI_puasa_5</code> di GitHub.
                 </li>
                 <li>
-                  Di menu sebelah kiri, klik <strong>Pages</strong>.
+                  Klik tab <strong>Settings</strong> &gt; pilih menu <strong>Pages</strong>.
                 </li>
                 <li>
-                  Di bawah tulisan <strong>Build and deployment &gt; Source</strong>, ubah pilihan dari <span className="text-rose-600 line-through">"Deploy from a branch"</span> menjadi <strong>"GitHub Actions"</strong>.
+                  Di bawah <strong>Build and deployment &gt; Source</strong>, pilih <strong>"GitHub Actions"</strong>.
                 </li>
                 <li>
-                  <strong>Selesai!</strong> Buka tab <strong>Actions</strong> untuk melihat proses build otomatis. Dalam 1 menit, web game Anda akan aktif di <code className="text-emerald-700 font-semibold">https://username.github.io/nama-repo/</code> dengan semua gambar & materi tampil sempurna!
+                  <strong>Selesai!</strong> Website aktif di <code className="text-emerald-700 font-semibold">https://Muuu02.github.io/MPI_puasa_5/</code> dengan banner dan semua aset asli tampil tajam!
                 </li>
               </ol>
             </div>
@@ -124,7 +124,7 @@ git push origin main`;
             <div className="space-y-1.5">
               <div className="flex items-center justify-between text-xs text-slate-600">
                 <span className="font-semibold flex items-center gap-1.5">
-                  <Terminal className="w-4 h-4 text-emerald-700" /> Perintah Git untuk Push Perubahan:
+                  <Terminal className="w-4 h-4 text-emerald-700" /> Perintah Git untuk Push Perbaikan:
                 </span>
                 <button
                   onClick={() => handleCopy(gitCommands, 'git')}
@@ -142,66 +142,32 @@ git push origin main`;
                 </button>
               </div>
               <pre className="bg-slate-900 text-emerald-400 p-3 rounded-lg text-xs font-mono overflow-x-auto">
-                {gitCommands}
+{`git add .
+git commit -m "Fix: pulihkan aset banner asli dan perbaiki deploy GitHub Pages"
+git push origin main`}
               </pre>
             </div>
           </div>
 
-          {/* Solution 2: Download 1 Single File Standalone */}
-          <div className="border border-blue-200 bg-blue-50/70 rounded-xl p-5 space-y-3">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <span className="bg-blue-700 text-white text-xs font-bold px-2.5 py-0.5 rounded-full">
-                  Solusi Praktis (1 Berkas Saja)
-                </span>
-                <h4 className="font-bold text-blue-950 text-base">
-                  Unduh 1 Berkas HTML Mandiri (Single File)
-                </h4>
-              </div>
-              <Sparkles className="w-5 h-5 text-blue-600" />
-            </div>
-
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Seluruh aplikasi web (HTML + CSS + JavaScript + 18 layar interaktif + Web Audio + grafik vektor SVG) telah disatukan ke dalam <strong>1 berkas tunggal mandiri (~760 KB)</strong>. Berkas ini dapat langsung di-double click secara offline di laptop/PID atau diunggah langsung ke hosting/GitHub Pages tanpa perlu build tool lagi!
-            </p>
-
-            <div className="flex flex-wrap items-center gap-3 pt-1">
-              <a
-                href="./standalone.html"
-                download="mpi-puasa-kelas5-tunggal.html"
-                onClick={() => sound.playSuccess()}
-                className="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-700 hover:bg-blue-800 text-white font-bold text-xs rounded-xl shadow-sm transition-all cursor-pointer"
-              >
-                <span>Unduh Berkas Tunggal (mpi-puasa-kelas5-tunggal.html)</span>
-              </a>
-              <span className="text-xs text-slate-500">
-                100% Kebal 404 & Bebas Error MIME Type.
-              </span>
-            </div>
-          </div>
-
-          {/* Solution 3: Manual Build / Offline Deployment */}
+          {/* Solution 2: Manual Build / Offline Deployment */}
           <div className="border border-slate-200 bg-slate-50/70 rounded-xl p-5 space-y-3">
             <h4 className="font-bold text-slate-900 flex items-center gap-2">
               <FolderArchive className="w-4 h-4 text-slate-600" />
-              Alternatif: Salin Folder Build ke Papan Interaktif Digital (PID)
+              Jalankan Offline di Sekolah (Papan Interaktif Digital)
             </h4>
             <p className="text-xs text-slate-600 leading-relaxed">
-              Jika sekolah ingin menjalankan paket lengkap dari flashdisk:
+              Jika ingin membuka MPI langsung di kelas tanpa koneksi internet:
             </p>
             <ol className="text-xs text-slate-700 space-y-2 list-decimal pl-4">
               <li>
-                Jalankan perintah kompilasi di terminal:
+                Jalankan perintah kompilasi di terminal komputer:
                 <code className="block bg-slate-900 text-emerald-300 font-mono p-2 rounded mt-1">npm run build</code>
               </li>
               <li>
-                Folder hasil bernama <code className="font-mono font-bold text-emerald-800">dist/</code> akan terbuat otomatis beserta <code className="font-mono">standalone.html</code>.
+                Salin seluruh folder <code className="font-mono font-bold text-emerald-800">dist/</code> ke Flashdisk.
               </li>
               <li>
-                Salin seluruh folder <code className="font-mono">dist/</code> ke Flashdisk, lalu colokkan ke Smart TV / Papan Interaktif Digital (PID).
-              </li>
-              <li>
-                Buka berkas <code className="font-mono font-bold text-emerald-800">dist/index.html</code> langsung dengan Chrome atau Edge. Aplikasi multimedia dan seluruh fiturnya berjalan 100% offline tanpa perlu server internet!
+                Buka berkas <code className="font-mono font-bold text-emerald-800">dist/index.html</code> langsung dengan Chrome atau Edge di TV/layar sentuh PID.
               </li>
             </ol>
           </div>
@@ -209,7 +175,7 @@ git push origin main`;
 
         {/* Footer */}
         <div className="px-6 py-3.5 bg-slate-50 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
-          <span>Konfigurasi Base: <strong className="text-slate-700 font-mono">./ (Relative)</strong> · Fallback: <strong className="text-slate-700">Vector SVG Offline</strong></span>
+          <span>Target Repo: <strong className="text-slate-700 font-mono">Muuu02/MPI_puasa_5</strong> · Banner: <strong className="text-emerald-700">Original High-Res Asset</strong></span>
           <button
             onClick={() => {
               sound.playClick();
