@@ -1,5 +1,5 @@
 import React from 'react';
-import { Play, BookOpen, Map, Users, Award, Sparkles, Globe } from 'lucide-react';
+import { Play, BookOpen, Map, Users, Award, Sparkles } from 'lucide-react';
 import { IMAGES } from '../../data/mpiData';
 import { sound } from '../../utils/audio';
 
@@ -7,14 +7,12 @@ interface Screen1HomeProps {
   onNavigate: (screenId: number) => void;
   onOpenTeacherGuide: () => void;
   onOpenRoadmap: () => void;
-  onOpenPublishGuide?: () => void;
 }
 
 export const Screen1Home: React.FC<Screen1HomeProps> = ({
   onNavigate,
   onOpenTeacherGuide,
   onOpenRoadmap,
-  onOpenPublishGuide,
 }) => {
   return (
     <div className="max-w-6xl mx-auto space-y-6 animate-in fade-in duration-300">
@@ -74,20 +72,6 @@ export const Screen1Home: React.FC<Screen1HomeProps> = ({
               <BookOpen className="w-4 h-4 text-emerald-300" />
               <span>Panduan Guru</span>
             </button>
-
-            {onOpenPublishGuide && (
-              <button
-                onClick={() => {
-                  sound.playClick();
-                  onOpenPublishGuide();
-                }}
-                className="flex items-center gap-2 px-5 py-3.5 bg-emerald-900/60 hover:bg-emerald-800 text-emerald-200 hover:text-white font-semibold text-sm rounded-xl backdrop-blur-md border border-emerald-500/40 transition-all cursor-pointer"
-                title="Panduan publikasi ke GitHub Pages & solusi 404"
-              >
-                <Globe className="w-4 h-4 text-emerald-300" />
-                <span>Publikasi Online</span>
-              </button>
-            )}
           </div>
         </div>
       </div>

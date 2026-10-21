@@ -51,6 +51,211 @@ export const Screen13PjBLChallenge: React.FC<Screen13PjBLChallengeProps> = ({ on
     'Hikmah puasa bagi kehidupan dan pertemanan sehari-hari'
   ];
 
+  const formatMeta = [
+    {
+      badge: 'Contoh 1: Poster Digital Edukasi',
+      sub: 'Poster satu lembar artistik karya santri',
+      note: 'Kelompok dapat menggambar pada karton tebal atau studio kreasi interaktif di Layar 15.'
+    },
+    {
+      badge: 'Contoh 2: Infografik Runtut',
+      sub: 'Alur kronologis waktu sahur hingga berbuka',
+      note: 'Sangat cocok untuk kelompok yang menyukai urutan logis timeline dan bagan alur.'
+    },
+    {
+      badge: 'Contoh 3: Komik Pendek 4 Panel',
+      sub: 'Kisah interaksi dua santri Ahmad & Salman',
+      note: 'Bagus untuk kelompok yang gemar menggambar karakter kartun dan dialog percakapan.'
+    },
+    {
+      badge: 'Contoh 4: Peta Konsep / Mind Map',
+      sub: 'Diagram pemetaan cabang pokok fiqih ibadah puasa',
+      note: 'Membantu merangkum seluruh konsep fiqih secara terstruktur untuk persiapan ujian.'
+    }
+  ];
+
+  const renderInspirationPreview = () => {
+    switch (selectedFormat) {
+      case 0:
+        return (
+          <div className="flex flex-col items-center justify-center p-3 w-full animate-in fade-in duration-200">
+            <img
+              src={IMAGES.projectShowcase}
+              alt="Inspirasi Poster Edukasi Puasa"
+              referrerPolicy="no-referrer"
+              onError={(e) => {
+                const img = e.currentTarget;
+                if (img.src !== IMAGES.fallbackProjectShowcase) {
+                  img.src = IMAGES.fallbackProjectShowcase;
+                }
+              }}
+              className="rounded-xl shadow-md max-h-[340px] w-auto object-contain border border-slate-200"
+            />
+            <span className="mt-2 text-[11px] font-semibold text-emerald-800 bg-emerald-100/80 px-2.5 py-0.5 rounded-full">
+              Format 1 Lembar Vertikal
+            </span>
+          </div>
+        );
+
+      case 1:
+        return (
+          <div className="w-full p-2 space-y-2 animate-in fade-in duration-200">
+            <div className="bg-emerald-900 text-white rounded-xl p-2.5 text-center shadow-xs">
+              <span className="text-[10px] uppercase font-bold tracking-widest text-emerald-300 block">
+                Bagan Timeline Terstruktur
+              </span>
+              <h4 className="text-xs font-bold font-display">Alur Seharian Penuh Ibadah Puasa</h4>
+            </div>
+
+            <div className="space-y-2 text-xs">
+              <div className="flex items-center gap-3 p-2 bg-amber-50/80 border border-amber-200 rounded-lg">
+                <div className="w-7 h-7 rounded-full bg-amber-500 text-white font-bold flex items-center justify-center text-[11px] shrink-0">
+                  1
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center justify-between">
+                    <span className="font-bold text-amber-950 text-[11px]">03.30 – 04.30 WIB</span>
+                    <span className="text-[9px] bg-amber-200 text-amber-900 font-semibold px-1.5 py-0.5 rounded">Sahur</span>
+                  </div>
+                  <p className="text-[10px] text-amber-800 truncate">Makan sahur bernilai berkah & niat dalam hati</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3 p-2 bg-emerald-50/80 border border-emerald-200 rounded-lg">
+                <div className="w-7 h-7 rounded-full bg-emerald-600 text-white font-bold flex items-center justify-center text-[11px] shrink-0">
+                  2
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center justify-between">
+                    <span className="font-bold text-emerald-950 text-[11px]">04.35 (Fajar / Subuh)</span>
+                    <span className="text-[9px] bg-emerald-200 text-emerald-900 font-semibold px-1.5 py-0.5 rounded">Imsak</span>
+                  </div>
+                  <p className="text-[10px] text-emerald-800 truncate">Batas awal menahan diri dari segala pembatal</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3 p-2 bg-sky-50/80 border border-sky-200 rounded-lg">
+                <div className="w-7 h-7 rounded-full bg-sky-600 text-white font-bold flex items-center justify-center text-[11px] shrink-0">
+                  3
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center justify-between">
+                    <span className="font-bold text-sky-950 text-[11px]">Siang Hari Beraktivitas</span>
+                    <span className="text-[9px] bg-sky-200 text-sky-900 font-semibold px-1.5 py-0.5 rounded">Sabar</span>
+                  </div>
+                  <p className="text-[10px] text-sky-800 truncate">Jaga lisan, tidak bertengkar, perbanyak tadarus</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3 p-2 bg-teal-50/80 border border-teal-200 rounded-lg">
+                <div className="w-7 h-7 rounded-full bg-teal-600 text-white font-bold flex items-center justify-center text-[11px] shrink-0">
+                  4
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center justify-between">
+                    <span className="font-bold text-teal-950 text-[11px]">18.05 (Azan Maghrib)</span>
+                    <span className="text-[9px] bg-teal-200 text-teal-900 font-semibold px-1.5 py-0.5 rounded">Iftar</span>
+                  </div>
+                  <p className="text-[10px] text-teal-800 truncate">Segerakan berbuka dengan doa, kurma & air putih</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+
+      case 2:
+        return (
+          <div className="w-full p-2 space-y-2 animate-in fade-in duration-200">
+            <div className="bg-amber-800 text-white rounded-xl p-2 text-center shadow-xs">
+              <span className="text-[10px] uppercase font-bold tracking-widest text-amber-200 block">
+                Format Komik Strip
+              </span>
+              <h4 className="text-xs font-bold font-display">Kisah: “Petualangan Puasa Ahmad & Salman”</h4>
+            </div>
+
+            <div className="grid grid-cols-2 gap-1.5 text-slate-800">
+              <div className="p-2 bg-amber-50 border border-amber-300 rounded-lg flex flex-col justify-between min-h-[96px]">
+                <span className="text-[9px] font-bold text-amber-800 uppercase">Panel 1: Sahur</span>
+                <p className="text-[10px] leading-snug text-slate-700 bg-white p-1 rounded border border-amber-100">
+                  💬 <strong>Ahmad:</strong> "Ayo sahur Salman! Ada berkah di dalamnya!"
+                </p>
+                <span className="text-[8px] text-slate-400 text-right">04.00</span>
+              </div>
+
+              <div className="p-2 bg-blue-50 border border-blue-300 rounded-lg flex flex-col justify-between min-h-[96px]">
+                <span className="text-[9px] font-bold text-blue-800 uppercase">Panel 2: Di Sekolah</span>
+                <p className="text-[10px] leading-snug text-slate-700 bg-white p-1 rounded border border-blue-100">
+                  💬 <strong>Salman:</strong> "Haus sekali ya... tapi aku harus sabar!"
+                </p>
+                <span className="text-[8px] text-slate-400 text-right">11.30</span>
+              </div>
+
+              <div className="p-2 bg-emerald-50 border border-emerald-300 rounded-lg flex flex-col justify-between min-h-[96px]">
+                <span className="text-[9px] font-bold text-emerald-800 uppercase">Panel 3: Berbagi</span>
+                <p className="text-[10px] leading-snug text-slate-700 bg-white p-1 rounded border border-emerald-100">
+                  💬 <strong>Ahmad:</strong> "Yuk bagikan kurma untuk musafir masjid!"
+                </p>
+                <span className="text-[8px] text-slate-400 text-right">17.30</span>
+              </div>
+
+              <div className="p-2 bg-purple-50 border border-purple-300 rounded-lg flex flex-col justify-between min-h-[96px]">
+                <span className="text-[9px] font-bold text-purple-800 uppercase">Panel 4: Maghrib</span>
+                <p className="text-[10px] leading-snug text-slate-700 bg-white p-1 rounded border border-purple-100">
+                  💬 <strong>Bersama:</strong> "Alhamdulillah! Allahumma laka shumtu!"
+                </p>
+                <span className="text-[8px] text-slate-400 text-right">18.05</span>
+              </div>
+            </div>
+          </div>
+        );
+
+      case 3:
+        return (
+          <div className="w-full p-2 space-y-2 animate-in fade-in duration-200">
+            <div className="bg-indigo-900 text-white rounded-xl p-2 text-center shadow-xs">
+              <span className="text-[10px] uppercase font-bold tracking-widest text-indigo-300 block">
+                Format Diagram Pohon Konsep
+              </span>
+              <h4 className="text-xs font-bold font-display">Peta Konsep Cabang Fiqih Puasa Wajib</h4>
+            </div>
+
+            <div className="p-2 bg-slate-100 rounded-xl border border-slate-200 space-y-1.5">
+              <div className="bg-indigo-700 text-white text-center py-1 px-3 rounded-lg font-bold text-xs">
+                ⭐ PUASA RAMADAN (WAJIB) ⭐
+              </div>
+
+              <div className="grid grid-cols-2 gap-1.5 text-[10px]">
+                <div className="bg-emerald-50 border border-emerald-300 p-1.5 rounded-lg">
+                  <span className="font-bold text-emerald-800 block text-[10px]">🌱 1. Syarat</span>
+                  <p className="text-slate-600 text-[9px]">Islam, Baligh, Berakal, Suci, Mampu.</p>
+                </div>
+
+                <div className="bg-blue-50 border border-blue-300 p-1.5 rounded-lg">
+                  <span className="font-bold text-blue-800 block text-[10px]">🌿 2. Rukun</span>
+                  <p className="text-slate-600 text-[9px]">1. Niat malam.<br/>2. Imsak (fajar - maghrib).</p>
+                </div>
+
+                <div className="bg-rose-50 border border-rose-300 p-1.5 rounded-lg">
+                  <span className="font-bold text-rose-800 block text-[10px]">⚠️ 3. Pembatal</span>
+                  <p className="text-slate-600 text-[9px]">Makan/minum sengaja, muntah sengaja.</p>
+                </div>
+
+                <div className="bg-amber-50 border border-amber-300 p-1.5 rounded-lg">
+                  <span className="font-bold text-amber-800 block text-[10px]">💎 4. Hikmah</span>
+                  <p className="text-slate-600 text-[9px]">Takwa, tubuh sehat, peduli sesama.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+
+      default:
+        return null;
+    }
+  };
+
+  const currentMeta = formatMeta[selectedFormat] || formatMeta[0];
+
   return (
     <div className="max-w-5xl mx-auto space-y-6 animate-in fade-in duration-300">
       {/* Top Banner */}
@@ -102,27 +307,21 @@ export const Screen13PjBLChallenge: React.FC<Screen13PjBLChallengeProps> = ({ on
         {/* Left Column: Visual Poster Inspiration */}
         <div className="lg:col-span-5 bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between">
           <div className="p-4 border-b border-slate-100 bg-emerald-50/60">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-800 block">
-              Contoh Inspirasi Karya
-            </span>
-            <p className="text-xs text-slate-600">Poster edukatif penuh warna karya santri</p>
+            <div className="flex items-center justify-between mb-1">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100/70 px-2 py-0.5 rounded">
+                {currentMeta.badge}
+              </span>
+              <span className="text-[10px] font-semibold text-emerald-700">Pratinjau Format</span>
+            </div>
+            <p className="text-xs text-slate-600 font-medium">{currentMeta.sub}</p>
           </div>
-          <div className="p-4 flex-1 flex items-center justify-center bg-slate-50">
-            <img
-              src={IMAGES.projectShowcase}
-              alt="Inspirasi Poster Edukasi Puasa"
-              referrerPolicy="no-referrer"
-              onError={(e) => {
-                const img = e.currentTarget;
-                if (img.src !== IMAGES.fallbackProjectShowcase) {
-                  img.src = IMAGES.fallbackProjectShowcase;
-                }
-              }}
-              className="rounded-xl shadow-md max-h-[340px] w-auto object-contain border border-slate-200"
-            />
+
+          <div className="p-3 flex-1 flex items-center justify-center bg-slate-50 min-h-[340px]">
+            {renderInspirationPreview()}
           </div>
-          <div className="p-3 bg-white border-t border-slate-100 text-[11px] text-slate-500 text-center">
-            Kelompok dapat memanfaatkan kertas karton gambar atau studio kreasi interaktif di Layar 15.
+
+          <div className="p-3 bg-white border-t border-slate-100 text-[11px] text-slate-500 text-center leading-relaxed">
+            💡 {currentMeta.note}
           </div>
         </div>
 

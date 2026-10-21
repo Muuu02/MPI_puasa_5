@@ -3,7 +3,6 @@ import { Navbar } from './components/Navbar';
 import { PIDToolbar } from './components/PIDToolbar';
 import { TeacherGuideModal } from './components/TeacherGuideModal';
 import { PetaMateriModal } from './components/PetaMateriModal';
-import { PublishGuideModal } from './components/PublishGuideModal';
 import { SCREEN_LIST } from './data/mpiData';
 import { sound } from './utils/audio';
 
@@ -31,7 +30,6 @@ export default function App() {
   const [currentScreen, setCurrentScreen] = useState<number>(1);
   const [isTeacherGuideOpen, setIsTeacherGuideOpen] = useState<boolean>(false);
   const [isRoadmapOpen, setIsRoadmapOpen] = useState<boolean>(false);
-  const [isPublishGuideOpen, setIsPublishGuideOpen] = useState<boolean>(false);
 
   const totalScreens = SCREEN_LIST.length;
 
@@ -70,7 +68,6 @@ export default function App() {
       } else if (e.key === 'Escape') {
         setIsTeacherGuideOpen(false);
         setIsRoadmapOpen(false);
-        setIsPublishGuideOpen(false);
       }
     };
 
@@ -86,7 +83,6 @@ export default function App() {
             onNavigate={navigateTo}
             onOpenTeacherGuide={() => setIsTeacherGuideOpen(true)}
             onOpenRoadmap={() => setIsRoadmapOpen(true)}
-            onOpenPublishGuide={() => setIsPublishGuideOpen(true)}
           />
         );
       case 2:
@@ -129,7 +125,6 @@ export default function App() {
             onNavigate={navigateTo}
             onOpenTeacherGuide={() => setIsTeacherGuideOpen(true)}
             onOpenRoadmap={() => setIsRoadmapOpen(true)}
-            onOpenPublishGuide={() => setIsPublishGuideOpen(true)}
           />
         );
     }
@@ -145,7 +140,6 @@ export default function App() {
         onNavigate={navigateTo}
         onOpenTeacherGuide={() => setIsTeacherGuideOpen(true)}
         onOpenRoadmap={() => setIsRoadmapOpen(true)}
-        onOpenPublishGuide={() => setIsPublishGuideOpen(true)}
       />
 
       {/* Screen Category & Title Breadcrumb Subbar */}
@@ -198,11 +192,6 @@ export default function App() {
         currentScreen={currentScreen}
         onClose={() => setIsRoadmapOpen(false)}
         onSelectScreen={navigateTo}
-      />
-
-      <PublishGuideModal
-        isOpen={isPublishGuideOpen}
-        onClose={() => setIsPublishGuideOpen(false)}
       />
     </div>
   );
