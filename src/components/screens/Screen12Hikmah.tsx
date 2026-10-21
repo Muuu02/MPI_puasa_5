@@ -120,7 +120,7 @@ export const Screen12Hikmah: React.FC<Screen12HikmahProps> = ({ onNext }) => {
             referrerPolicy="no-referrer"
             onError={(e) => {
               const img = e.currentTarget;
-              if (!img.src.endsWith(IMAGES.fallbackHikmahCaring)) {
+              if (img.src !== IMAGES.fallbackHikmahCaring) {
                 img.src = IMAGES.fallbackHikmahCaring;
               }
             }}

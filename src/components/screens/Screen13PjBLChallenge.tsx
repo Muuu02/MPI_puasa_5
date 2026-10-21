@@ -114,7 +114,7 @@ export const Screen13PjBLChallenge: React.FC<Screen13PjBLChallengeProps> = ({ on
               referrerPolicy="no-referrer"
               onError={(e) => {
                 const img = e.currentTarget;
-                if (!img.src.endsWith(IMAGES.fallbackProjectShowcase)) {
+                if (img.src !== IMAGES.fallbackProjectShowcase) {
                   img.src = IMAGES.fallbackProjectShowcase;
                 }
               }}
