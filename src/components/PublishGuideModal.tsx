@@ -147,25 +147,58 @@ git push origin main`;
             </div>
           </div>
 
-          {/* Solution 2: Manual Build / Offline Deployment */}
+          {/* Solution 2: Download 1 Single File Standalone */}
+          <div className="border border-blue-200 bg-blue-50/70 rounded-xl p-5 space-y-3">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="bg-blue-700 text-white text-xs font-bold px-2.5 py-0.5 rounded-full">
+                  Solusi Praktis (1 Berkas Saja)
+                </span>
+                <h4 className="font-bold text-blue-950 text-base">
+                  Unduh 1 Berkas HTML Mandiri (Single File)
+                </h4>
+              </div>
+              <Sparkles className="w-5 h-5 text-blue-600" />
+            </div>
+
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Seluruh aplikasi web (HTML + CSS + JavaScript + 18 layar interaktif + Web Audio + grafik vektor SVG) telah disatukan ke dalam <strong>1 berkas tunggal mandiri (~760 KB)</strong>. Berkas ini dapat langsung di-double click secara offline di laptop/PID atau diunggah langsung ke hosting/GitHub Pages tanpa perlu build tool lagi!
+            </p>
+
+            <div className="flex flex-wrap items-center gap-3 pt-1">
+              <a
+                href="./standalone.html"
+                download="mpi-puasa-kelas5-tunggal.html"
+                onClick={() => sound.playSuccess()}
+                className="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-700 hover:bg-blue-800 text-white font-bold text-xs rounded-xl shadow-sm transition-all cursor-pointer"
+              >
+                <span>Unduh Berkas Tunggal (mpi-puasa-kelas5-tunggal.html)</span>
+              </a>
+              <span className="text-xs text-slate-500">
+                100% Kebal 404 & Bebas Error MIME Type.
+              </span>
+            </div>
+          </div>
+
+          {/* Solution 3: Manual Build / Offline Deployment */}
           <div className="border border-slate-200 bg-slate-50/70 rounded-xl p-5 space-y-3">
             <h4 className="font-bold text-slate-900 flex items-center gap-2">
               <FolderArchive className="w-4 h-4 text-slate-600" />
-              Alternatif: Jalankan Offline di Sekolah (Papan Interaktif Digital)
+              Alternatif: Salin Folder Build ke Papan Interaktif Digital (PID)
             </h4>
             <p className="text-xs text-slate-600 leading-relaxed">
-              Jika sekolah tidak memiliki koneksi internet stabil saat pembelajaran di kelas:
+              Jika sekolah ingin menjalankan paket lengkap dari flashdisk:
             </p>
             <ol className="text-xs text-slate-700 space-y-2 list-decimal pl-4">
               <li>
-                Jalankan perintah kompilasi di terminal komputer Anda:
+                Jalankan perintah kompilasi di terminal:
                 <code className="block bg-slate-900 text-emerald-300 font-mono p-2 rounded mt-1">npm run build</code>
               </li>
               <li>
-                Folder hasil bernama <code className="font-mono font-bold text-emerald-800">dist/</code> akan terbuat.
+                Folder hasil bernama <code className="font-mono font-bold text-emerald-800">dist/</code> akan terbuat otomatis beserta <code className="font-mono">standalone.html</code>.
               </li>
               <li>
-                Salin seluruh folder <code className="font-mono">dist/</code> ke Flashdisk, lalu colokkan ke PC / Smart TV Papan Interaktif Digital (PID).
+                Salin seluruh folder <code className="font-mono">dist/</code> ke Flashdisk, lalu colokkan ke Smart TV / Papan Interaktif Digital (PID).
               </li>
               <li>
                 Buka berkas <code className="font-mono font-bold text-emerald-800">dist/index.html</code> langsung dengan Chrome atau Edge. Aplikasi multimedia dan seluruh fiturnya berjalan 100% offline tanpa perlu server internet!
